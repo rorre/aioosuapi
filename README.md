@@ -2,7 +2,7 @@
 
 Asynchronous osu! api wrapper
 
-Not ready for use. I'm just waiting for osu-web api to go public before I work on this.
+Not recommended for use. This module scrapes non-api pages. It's a temporary solution until osu-web api becomes public.
 
 ### To install type this in terminal: 
 
