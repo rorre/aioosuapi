@@ -31,6 +31,15 @@ class aioosuwebapi:
         else:
             raise ValueError("Endpoint has most likely been changed")
 
+    async def get_latest_ranked_beatmapsets(self):
+        http_contents = await self._raw_request("beatmapsets")
+        if "json-beatmaps" in http_contents:
+            soup = BeautifulSoup(http_contents, "html.parser")
+            results = soup.find(id="json-beatmaps").string.strip()
+            return json.loads(results)
+        else:
+            raise ValueError("Endpoint has most likely been changed")
+
     async def get_group_members(self, group_id):
         http_contents = await self._raw_request(f"groups/{group_id}")
         if "json-users" in http_contents:
