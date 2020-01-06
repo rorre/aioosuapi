@@ -6,7 +6,7 @@ Not recommended for use. This module scrapes non-api pages. It's a temporary sol
 
 ### To install type this in terminal: 
 
-`pip3 install git+https://github.com/Kyuunex/aioosuapi.git@v2-parsed`
+`pip3 install git+https://github.com/Kyuunex/aioosuapi.git@v2-scrape`
 
 
 # Quick example:
