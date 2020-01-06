@@ -48,3 +48,14 @@ class aioosuwebapi:
             return json.loads(result)
         else:
             raise ValueError("Endpoint has most likely been changed")
+
+    async def get_user(self, user_id):
+        http_contents = await self._raw_request(f"users/{user_id}")
+        if "json-user" in http_contents:
+            soup = BeautifulSoup(http_contents, "html.parser")
+            results = soup.find(id="json-user").string.strip()
+            return json.loads(results)
+        elif "<h1>User not found! ;_;</h1>" in http_contents:
+            return None
+        else:
+            raise ValueError("Endpoint has most likely been changed")
